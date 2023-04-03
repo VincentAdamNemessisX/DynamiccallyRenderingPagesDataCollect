@@ -1,5 +1,7 @@
 {
-  "Request Cookies": {
+    "name": "destroy_everything",
+    "domain": ".taobao.com",
+    "value": "Vq8l%2BKCLz3%2F65A%3D%3D",
     "_cc_": "URm48syIZQ==",
     "_l_g_": "Ug==",
     "_m_h5_tk": "8a6e25dc412faa519a753651cca6b6fd_1680410743925",
@@ -28,5 +30,4 @@
     "uc3": "lg2=W5iHLLyFOGW7aA==&id2=UUpgQyo4G5pviTk/5Q==&nk2=B0ewZgr5aKseuU3QK0SXfi5J&vt3=F8dCsfT73JSy8Eyq56Q=",
     "uc4": "nk4=0@BQRd97hp+s0kkoDBStP28fku0ldXOmILtM+7jk8=&id4=0@U2gqzJxTIAV1P4DSXQDN3rU+Y6MAqiXt",
     "unb": "2215314230965"
-  }
 }

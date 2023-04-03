@@ -14,10 +14,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
 browser = webdriver.Chrome()
-headers = {
-    "name": "Request Cookies",
-    "value": json.loads(open('cookies.json', 'r').read())['Request Cookies']
-}
 # browser.get('https://www.taobao.com')
 # browser.add_cookie(headers)
 # input_first = browser.find_element(By.ID, 'q')
@@ -102,7 +98,25 @@ headers = {
 # button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.btn-search')))
 # print(input, button)
 
+# forward and back
+# browser.get('https://www.baidu.com')
+# browser.get('https://www.taobao.com')
+# browser.get('https://www.python.org')
+# browser.back()
+# time.sleep(1)
+# browser.forward()
+# time.sleep(1)
 
+# cookies
+# browser.get('https://www.taobao.com')
+# print(browser.get_cookies())
+# # browser.add_cookie({'name': 'name', 'domain': 'www.zhihu.com', 'value': 'germey'})
+# print(browser.get_cookies())
+# browser.delete_all_cookies()
+# cookies = open('cookies.json', 'r').read()
+# cookies = json.loads(cookies)
+# browser.add_cookie(cookies)
+# print(browser.get_cookies())
 
 
 
