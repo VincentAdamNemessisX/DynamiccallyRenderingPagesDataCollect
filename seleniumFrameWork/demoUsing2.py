@@ -11,7 +11,7 @@ import time
 import json
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 browser = webdriver.Chrome()
 # browser.get('https://www.taobao.com')
@@ -118,6 +118,23 @@ browser = webdriver.Chrome()
 # browser.add_cookie(cookies)
 # print(browser.get_cookies())
 
+# option management
+# browser.get('https://www.baidu.com')
+# browser.execute_script('window.open()')
+# print(browser.window_handles)
+# browser.switch_to.window(browser.window_handles[1])
+# browser.get('https://www.taobao.com')
+# time.sleep(1)
+# browser.switch_to.window(browser.window_handles[0])
+# browser.get('https://python.org')
 
-
+# exception handle
+try:
+    browser.get('https://www.baidu.com')
+except TimeoutException:
+    print('Time out')
+try:
+    browser.find_element(By.ID, 'hello')
+except NoSuchElementException:
+    print('No such element')
 browser.quit()
