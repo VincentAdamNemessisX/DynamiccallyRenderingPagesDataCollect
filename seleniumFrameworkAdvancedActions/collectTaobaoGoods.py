@@ -5,9 +5,11 @@
 # version    : python 3.8
 # Description:
 """
+from time import sleep
+
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import  By
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from urllib.parse import quote
@@ -49,6 +51,7 @@ def get_goods():
     html = browser.page_source
     doc = pq(html)
     items = doc('#mainsrp-itemlist .items .item').items()
+    product = {}
     for item in items:
         product = {
             'image': item.find('.pic .img').attr('data-src'),
@@ -58,7 +61,7 @@ def get_goods():
             'shop': item.find('.shop').text(),
             'location': item.find('.location').text()
         }
-        save_to_mongo(product)
+    save_to_mongo(product)
 
 
 MONGO_URL = 'mongodb+srv://vincent:ZTXic3344@tempcluster.kslgvab.mongodb.net/?retryWrites=true&w=majority'
@@ -70,14 +73,15 @@ db = client[MONGO_DB]
 
 def save_to_mongo(result):
     try:
-        if db[MONGO_COLLECTION].insert_many(result):
+        if db[MONGO_COLLECTION].insert_one(result):
             print("Save to mongoDB successfully!")
     except Exception:
         print("Save to mongoDB failed!")
 
 
 if __name__ == '__main__':
-    MAX_PAGE = 20
+    MAX_PAGE = 5
     for i in range(1, MAX_PAGE + 1):
+        sleep(0.5)
         index_page(i)
-# Path
+# Path: seleniumFrameworkAdvancedActions/collectTaobaoGoods.py
