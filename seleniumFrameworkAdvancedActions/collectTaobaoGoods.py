@@ -17,7 +17,7 @@ from pyquery import PyQuery as pq
 import pymongo
 
 browser = webdriver.Chrome()
-wait = WebDriverWait(browser, 10)
+wait = WebDriverWait(browser, 6)
 KEYWORD = 'ipad'
 
 
@@ -64,7 +64,7 @@ def get_goods():
     save_to_mongo(product)
 
 
-MONGO_URL = 'mongodb+srv://vincent:ZTXic3344@tempcluster.kslgvab.mongodb.net/?retryWrites=true&w=majority'
+MONGO_URL = 'mongodb://root:ic3344@8.130.73.157:27017'
 MONGO_DB = 'taobao'
 MONGO_COLLECTION = 'goods'
 client = pymongo.MongoClient(MONGO_URL)
@@ -82,6 +82,6 @@ def save_to_mongo(result):
 if __name__ == '__main__':
     MAX_PAGE = 5
     for i in range(1, MAX_PAGE + 1):
-        sleep(0.5)
+        sleep(1)
         index_page(i)
 # Path: seleniumFrameworkAdvancedActions/collectTaobaoGoods.py
